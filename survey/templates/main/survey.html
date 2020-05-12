@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+    <title>BMKG &mdash; Indeks Kepuasan Masyarakat</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+       
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+  
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}" type="text/javascript"></script>
+    
+  </head>
+  <body style="background-image: url('{% static 'images/bg3.jpg' %}');">
+  
+  <div class="py-5">
+		<div class="container">
+		  <div class="row">
+			  <div class="col-md-12">
+			  </div>
+		  </div>
+		</div>
+	</div>
+  
+  <div style="height: 1%"></div>
+  
+  <div class="site-wrap">   
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> 
+    
+    <!-- .site-mobile-menu -->
+    
+    
+    <div class="site-navbar-wrap js-site-navbar bg-white">      
+      <div class="container">
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-center">
+              <div class="col-2">
+                <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.png' %}" alt="" width="50" height="60"></a>
+              </div>
+              <div class="col-10">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                      <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+                        <span class="icon-menu h3"></span>
+                      </a>
+                    </div>  
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+ 
+    <div class="site-blocks-cover inner-page" style="background-image: url('{% static 'images/Survey_page.jpeg' %}');" data-aos="fade" data-stellar-background-ratio="0.3">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-7 text-center" data-aos="fade">
+          <h2 class="text-center text-white"><b>INDEKS KEPUASAN MASYARAKAT</b></h2>
+          <h2 class="text-center text-white"><b>{{wilayah}}</b></h2>
+        </div>
+      </div>
+    </div>  
+
+    <form method="post" action="#" class="p-5 bg-white">
+      <div class="py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-12 mb-5">          
+          
+                <div class="p-5 bg-white">
+                <div class="row mb-5">
+                    <div class="col-md-12"> 
+                      <h2 class="text-center">DATA KORESPONDEN</h2>
+                    </div>
+                </div>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 text-left mb-5">
+                      <div class="p-3">
+                          <div class="row form-group">
+                              <div class="col-md-12 mb-3 mb-md-0">
+                                <label class="font-weight-bold" for="fullname">Nama<span class="text-danger">*</span></label>
+                                <input type="text" id="fullname" class="form-control validate" placeholder="Nama" name="name">
+                              </div>
+                          </div>
+                          <div class="row form-group">
+                              <div class="col-md-12">
+                                <label class="font-weight-bold" for="NIP">NIP<span class="text-danger">*</span></label>
+                                <input type="number" id="NIP" class="form-control validate" placeholder="Nomor Induk Penduduk" name="NIP">
+                              </div>
+                          </div>                        
+                      </div>
+                    </div>
+                    <div class="col-md-6 text-left mb-5">
+                      <div class="p-3">
+                          <div class="row form-group">
+                              <div class="col-md-12 mb-3 mb-md-0">
+                                <label class="font-weight-bold" for="sex">Jenis Kelamin<span class="text-danger">*</span></label>
+                                <select class="form-control validate" id="sex" name="sex"> 
+                                  <option value="" disabled selected hidden>Jenis Kelamin</option>                                   
+                                  <option value="L">Laki-laki</option>
+                                  <option value="P">Perempuan</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col-md-12">
+                                <label class="font-weight-bold" for="age">Umur<span class="text-danger">*</span></label>
+                                <input type="number" id="age" class="form-control validate" placeholder="Umur" name="age">
+                              </div>
+                            </div>                           
+                      </div>
+                    </div>
+                  </div>  
+
+                  <div class="row">                    
+                      <div class="col-md-6 text-left mb-5">
+                          <div class="p-4 mb-3 bg-light">
+                            <h3 class="h5 text-black mb-3">Pendidikan<span class="text-danger">*</span></h3>
+                            <div class="row">
+                             
+                              <div class="col-md-6 text-left mb-3">
+                                  <radio>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="SLTP" value="SLTP" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">SLTP</label>                                      
+                                  </div>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="D1" value="D1" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">D1</label>                                      
+                                  </div>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="S1" value="S1" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">S1</label>                                      
+                                  </div>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="S3" value="S3" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">S2 ke Atas</label>                                      
+                                  </div> 
+                                  </radio>                                 
+                              </div>
+                              <div class="col-md-6 text-left mb-3">
+                                <radio>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="SLTA" value="SLTA" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">SLTA</label>                                      
+                                  </div>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="D2" value="D2" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">D2</label>                                      
+                                  </div>
+                                  <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="S2" value="S2" name="quality[41]">
+                                      <label class="form-check-label" for="materialUnchecked">S2</label>                                      
+                                  </div>
+                                  </radio>
+                              </div>
+                            </div>                                         
+                          </div>                         
+                       </div>
+
+                       <div class="col-md-6 text-left mb-5">
+                          <div class="p-4 mb-3 bg-light">
+                              <h3 class="h5 text-black mb-3">Pekerjaan<span class="text-danger">*</span></h3>
+                              <div class="row">
+                                  <div class="col-md-6 text-left mb-3">                                    
+                                  <radio>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="Mahasiswa" value="Mahasiswa" name="quality[42]">
+                                          <label class="form-check-label" for="materialUnchecked">Mahasiswa</label>                                      
+                                      </div>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="PNS" value="PNS" name="quality[42]">
+                                          <label class="form-check-label" for="materialUnchecked">PNS</label>                                      
+                                      </div>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="BUMN" value="BUMN" name="quality[42]">
+                                          <label class="form-check-label" for="materialUnchecked">BUMN</label>                                      
+                                      </div> 
+                                  </radio>                                                                    
+                                  </div>
+                                  <div class="col-md-6 text-left mb-3">
+                                    <radio>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="Swasta" value="Swasta" name="quality[42]">
+                                          <label class="form-check-label" for="materialUnchecked">Swasta</label>                                      
+                                      </div>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="Wiraswasta" value="Wiraswasta" name="quality[42]">
+                                          <label class="form-check-label" for="materialUnchecked">Wiraswasta</label>                                      
+                                      </div>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="Lainnya" value="Lainnya" name="quality[42]">
+                                          <label class="form-check-label" for="materialUnchecked">Lainnya</label>                                      
+                                      </div>
+                                    </radio>
+                                    <br>
+                                  </div>
+                                </div>                              
+                          </div>                       
+                          
+                       </div>
+                  </div>     
+                </div>
+            </div>
+
+                <div class="col-md-12 col-lg-12 mb-5">
+                  <!--div class="p-4 mb-3 bg-light"-->
+                  <div class="row mb-5">
+                      <div class="col-md-12">
+                        <h2 class="text-center">UNSUR PELAYANAN</h2>
+                      </div>
+                      
+                      <div class="col-md-12 justify-content-center" style="overflow-x: auto">
+                        <!--table-->
+                        <style type="text/css">
+                          .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+                          .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+                            font-family:Arial, sans-serif;font-size:16px;overflow:hidden;padding:10px 5px;word-break:normal;}
+                          .tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+                            font-family:Arial, sans-serif;font-size:16px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                          .tg .tg-u7wx{border-color:#333333;font-size:12px;text-align:center;vertical-align:top}
+                          .tg .tg-exyw{background-color:#f0f0f0;border-color:#333333;font-weight:bold;text-align:left;vertical-align:top}
+                          .tg .tg-9ydz{border-color:#333333;font-size:16px;font-weight:bold;text-align:center;vertical-align:top}
+                          .tg .tg-i4jm{background-color:#cccccc;border-color:#333333;font-size:16px;font-weight:bold;text-align:center;vertical-align:center}
+                          .tg .tg-uek1{background-color:#cccccc;border-color:#333333;font-size:16px;text-align:center;vertical-align:center}
+                          .tg .tg-sxol{background-color:#cccccc;border-color:#333333;text-align:center;vertical-align:top}
+                          .tg .tg-wgd0{background-color:#cccccc;border-color:#333333;font-weight:bold;text-align:center;vertical-align:top}
+                          .tg .tg-x3sp{background-color:#f0f0f0;border-color:#333333;text-align:left;vertical-align:top}
+                          .tg .tg-ao2g{border-color:#333333;text-align:center;vertical-align:center}
+                          .tg .tg-de2y{border-color:#333333;text-align:left;vertical-align:top}
+                          @media screen and (max-width: 767px) {
+                            .tg {width: auto !important;}.tg col {width: auto !important;}
+                            .tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}
+                            }
+                            </style>
+                          <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 895px">
+                          <colgroup>
+                          <col style="width: 35px">
+                          <col style="width: 35px">
+                          <col style="width: 400px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          <col style="width: 75px">
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th class="tg-i4jm" colspan="2" rowspan="2">NO</th>
+                              <th class="tg-uek1" rowspan="2"><span style="font-weight:bold">RINCIAN PERTANYAAN</span></th>
+                              <th class="tg-uek1" colspan="4"><span style="font-weight:bold">KUALITAS PELAYANAN</span></th>
+                              <th class="tg-sxol" colspan="4" style="border-left: solid 3px"><span style="font-weight:bold">HARAPAN KONSUMEN</span></th>
+                            </tr>
+                            <tr>
+                              <td class="tg-wgd0">Sangat Setuju</td>
+                              <td class="tg-wgd0">Setuju</td>
+                              <td class="tg-wgd0">Kurang Setuju</td>
+                              <td class="tg-wgd0">Tidak Setuju</td>
+                              <td class="tg-wgd0" style="border-left: solid 3px">Sangat Penting</td>
+                              <td class="tg-wgd0">Penting</td>
+                              <td class="tg-wgd0">Kurang Penting</td>
+                              <td class="tg-wgd0">Tidak Penting</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="tg-u7wx" colspan="2">(1)</td>
+                              <td class="tg-u7wx">(2)</td>
+                              <td class="tg-u7wx">(3)</td>
+                              <td class="tg-u7wx">(4)</td>
+                              <td class="tg-u7wx">(5)</td>
+                              <td class="tg-u7wx">(6)</td>
+                              <td class="tg-u7wx" style="border-left: solid 3px">(7)</td>
+                              <td class="tg-u7wx">(8)</td>
+                              <td class="tg-u7wx">(9)</td>
+                              <td class="tg-u7wx">(10)</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz" rowspan="3">A</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Persyaratan pelayanan </span>adalah syarat yang harus dipenuhi dalam pengurusan suatu jenis pelayanan, baik persyaratan teknis maupun administratif</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">1</td>
+                              <td class="tg-de2y">Persyaratan pelayanan terbuka dan jelas</td>
+                              <radio>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="1_4" value="4" name="quality[1]"></td>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="1_3" value="3" name="quality[1]"></td>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="1_2" value="2" name="quality[1]"></td>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="1_1" value="1" name="quality[1]"></td>
+                                  <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="21_4" value="4" name="quality[21]"></td>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="21_3" value="3" name="quality[21]"></td>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="21_2" value="2" name="quality[21]"></td>
+                                  <td class="tg-ao2g"><input type="radio" class="form-check-input" id="21_1" value="1" name="quality[21]"></td>
+                              </radio>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">2</td>
+                              <td class="tg-de2y">Persyaratan pelayanan mudah dan dipenuhi</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="2_4" name="quality[2]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="2_3" name="quality[2]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="2_2" name="quality[2]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="2_1" name="quality[2]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="22_4" name="quality[22]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="22_3" name="quality[22]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="22_2" name="quality[22]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="22_1" name="quality[22]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz" rowspan="6">B</td>
+                              <td class="tg-exyw" colspan="2">Informasi yang diperoleh <span style="font-weight:normal">adalah informasi atas pelayanan publik yang tersedia</span></td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">3</td>
+                              <td class="tg-de2y">Dibutuhkan dalam kehidupan sehari-hari</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="3_4" name="quality[3]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="3_3" name="quality[3]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="3_2" name="quality[3]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="3_1" name="quality[3]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="23_4" name="quality[23]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="23_3" name="quality[23]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="23_2" name="quality[23]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="23_1" name="quality[23]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">4</td>
+                              <td class="tg-de2y">Mudah diakses</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="4_4" name="quality[4]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="4_3" name="quality[4]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="4_2" name="quality[4]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="4_1" name="quality[4]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="24_4" name="quality[24]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="24_3" name="quality[24]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="24_2" name="quality[24]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="24_1" name="quality[24]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">5</td>
+                              <td class="tg-de2y">Mudah dipahami</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="5_4" name="quality[5]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="5_3" name="quality[5]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="5_2" name="quality[5]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="5_1" name="quality[5]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="25_4" name="quality[25]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="25_3" name="quality[25]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="25_2" name="quality[25]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="25_1" name="quality[25]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">6</td>
+                              <td class="tg-de2y">Akurat</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="6_4" name="quality[6]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="6_3" name="quality[6]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="6_2" name="quality[6]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="6_1" name="quality[6]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="26_4" name="quality[26]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="26_3" name="quality[26]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="26_2" name="quality[26]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="26_1" name="quality[26]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-ao2g">7</td>
+                              <td class="tg-de2y">Ketersediaan jenis data dan informasi</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="7_4" name="quality[7]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="7_3" name="quality[7]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="7_2" name="quality[7]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="7_1" name="quality[7]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="27_4" name="quality[27]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="27_3" name="quality[27]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="27_2" name="quality[27]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="27_1" name="quality[27]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">C</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Prosedur pelayanan</span> adalah tata cara pelayanan yang dilakukan bagi penerima pelayanan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">8</td>
+                              <td class="tg-de2y">Alur pelayanan jelas dan sederhana</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="8_4" name="quality[8]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="8_3" name="quality[8]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="8_2" name="quality[8]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="8_1" name="quality[8]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="28_4" name="quality[28]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="28_3" name="quality[28]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="28_2" name="quality[28]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="28_1" name="quality[28]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">9</td>
+                              <td class="tg-de2y">Sistem dan prosedur pelayanan masih berpeluang menimbulkan KKN</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="9_4" name="quality[9]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="9_3" name="quality[9]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="9_2" name="quality[9]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="9_1" name="quality[9]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="29_4" name="quality[29]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="29_3" name="quality[29]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="29_2" name="quality[29]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="29_1" name="quality[29]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">D</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Waktu pelayanan</span> adalah jangka waktu yang diperlukan untuk menyelesaikan seluruh proses pelayanan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">10</td>
+                              <td class="tg-de2y">Informasi target waktu penyelesaian pelayanan jelas</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="10_4" name="quality[10]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="10_3" name="quality[10]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="10_2" name="quality[10]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="10_1" name="quality[10]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="30_4" name="quality[30]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="30_3" name="quality[30]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="30_2" name="quality[30]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="30_1" name="quality[30]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">11</td>
+                              <td class="tg-de2y">Penyelesaian pelayanan sesuai dengan target waktu</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="11_4" name="quality[11]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="11_3" name="quality[11]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="11_2" name="quality[11]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="11_1" name="quality[11]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="31_4" name="quality[31]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="31_3" name="quality[31]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="31_2" name="quality[31]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="31_1" name="quality[31]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">E</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Biaya atau tarif</span> adalah tarif yang dikenakan kepada penerima layanan dalam mengurus dan/atau memperoleh pelayanan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">12</td>
+                              <td class="tg-de2y">Biaya pelayanan jelas dan terbuka</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="12_4" name="quality[12]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="12_3" name="quality[12]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="12_2" name="quality[12]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="12_1" name="quality[12]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="32_4" name="quality[32]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="32_3" name="quality[32]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="32_2" name="quality[32]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="32_1" name="quality[32]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">F</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Produk spesifikasi jenis layanan</span> adalah hasil pelayanan yang diberikan dan diterima sesuai dengan ketentuan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">13</td>
+                              <td class="tg-de2y">Informasi daftar produk/jasa layanan terbuka dan jelas</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="13_4" name="quality[13]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="13_3" name="quality[13]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="13_2" name="quality[13]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="13_1" name="quality[13]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="33_4" name="quality[33]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="33_3" name="quality[33]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="33_2" name="quality[33]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="33_1" name="quality[33]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">G</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Penanganan pengaduan, saran, dan masukan</span> adalah mekanisme penanganan dan tindak lanjut terhadap pengaduan saran dan masukan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">14</td>
+                              <td class="tg-de2y">Sarana pengaduan/keluhan pelayanan publik tersedia</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="14_4" name="quality[14]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="14_3" name="quality[14]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="14_2" name="quality[14]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="14_1" name="quality[14]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="34_4" name="quality[34]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="34_3" name="quality[34]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="34_2" name="quality[34]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="34_1" name="quality[34]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">15</td>
+                              <td class="tg-de2y">Prosedur dan tindak lanjut penanganan pengaduan jelas</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="15_4" name="quality[15]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="15_3" name="quality[15]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="15_2" name="quality[15]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="15_1" name="quality[15]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="35_4" name="quality[35]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="35_3" name="quality[35]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="35_2" name="quality[35]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="35_1" name="quality[35]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">H</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Kriteria petugas/pelaksana layanan</span> adalah keberadaan dan kepastian petugas yang memberikan pelayanan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">16</td>
+                              <td class="tg-de2y">Keberadaan petugas pelayanan jelas</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="16_4" name="quality[16]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="16_3" name="quality[16]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="16_2" name="quality[16]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="16_1" name="quality[16]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="36_4" name="quality[36]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="36_3" name="quality[36]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="36_2" name="quality[36]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="36_1" name="quality[36]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">I</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Kompetensi pelaksana</span> adalah kemampuan yang harus dimiliki oleh pelaksana meliputi pengetahuan, keahlian keterampilan, dan pengalaman</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">17</td>
+                              <td class="tg-de2y">Petugas sigap, ahli, dan cekatan</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="17_4" name="quality[17]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="17_3" name="quality[17]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="17_2" name="quality[17]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="17_1" name="quality[17]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="37_4" name="quality[37]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="37_3" name="quality[37]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="37_2" name="quality[37]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="37_1" name="quality[37]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">J</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Perilaku pelaksanan</span> adalah sikap petugas dalam memberikan pelayanan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">18</td>
+                              <td class="tg-de2y">Sikap dan perilaku petugas pelayanan baik dan bertanggungjawab</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="18_4" name="quality[18]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="18_3" name="quality[18]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="18_2" name="quality[18]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="18_1" name="quality[18]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="38_4" name="quality[38]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="38_3" name="quality[38]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="38_2" name="quality[38]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="38_1" name="quality[38]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">K</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Keamanan dan kenyamanan sarana prasarana pelayanan</span> yaitu terjaminnya tingkat keamanan dan kenyamanan sarana dan prasarana pelayanan</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">19</td>
+                              <td class="tg-de2y">Sarana dan prasarana pelayanan aman, nyaman, dan mudah dijangkau</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="19_4" name="quality[19]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="19_3" name="quality[19]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="19_2" name="quality[19]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="19_1" name="quality[19]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="39_4" name="quality[39]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="39_3" name="quality[39]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="39_2" name="quality[39]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="39_1" name="quality[39]" value="1"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz">L</td>
+                              <td class="tg-x3sp" colspan="2"><span style="font-weight:bold">Komitmen penyelenggara</span> layanan dalam pelayanan publik</td>
+                              <td class="tg-x3sp" colspan="8"></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-9ydz"></td>
+                              <td class="tg-ao2g">20</td>
+                              <td class="tg-de2y">Pelayanan publik pada instasi ini sudah berjalan dengan baik</td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="20_4" name="quality[20]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="20_3" name="quality[20]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="20_2" name="quality[20]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="20_1" name="quality[20]" value="1"></td>
+                              <td class="tg-ao2g" style="border-left: solid 3px"><input type="radio" class="form-check-input" id="40_4" name="quality[40]" value="4"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="40_3" name="quality[40]" value="3"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="40_2" name="quality[40]" value="2"></td>
+                              <td class="tg-ao2g"><input type="radio" class="form-check-input" id="40_1" name="quality[40]" value="1"></td>
+                            </tr>
+                          </tbody>
+                          </table></div>
+                        <!--end of table-->
+                      </div>
+                      
+                      
+
+                  </div>
+                  <!--/div-->
+                  <div class="col-md-12">
+                    <div class="col-md-12">
+                      <label class="font-weight-bold" for="saran">SARAN DAN MASUKAN</label> 
+                      <textarea name="saran" id="saran" cols="30" rows="5" class="form-control" placeholder="Apabila Bapak/Ibu/Saudara/i memiliki beberapa masukan terkait produk/layanan informasi cuaca, iklim, dan gempa bumi dari BMKG, silakan tulis pada kolom/kotak ini"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-7 text-center">
+              <input type="submit" value="SUBMIT" class="btn btn-primary text-white px-4 py-2">
+            </div>
+          </div>
+
+        </div>
+      </div>  
+    </form>   
+  
+  
+  <div style="height: 1%"></div>
+
+  </div>
+
+  {% if message is not None %}
+                   
+        <script type="text/javascript">
+          $(document).ready(function(){
+              $("#error-modal").modal('show');
+          });
+        </script>      
+                  <!--Modal LOGIN-->
+          <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">PESAN !!!</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mx-3">        
+                  <div class="md-form mb-5">
+                    {{message}}
+                  </div>        
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End of Modal-->       
+        
+  {% endif %}
+              
+
+    
+
+    
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+  
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>
